@@ -1,5 +1,5 @@
 import { BlogPost } from "@/models/blog-post";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import * as BlogApi from "@/network/api/blog";
 import Head from "next/head";
 import styles from "@/styles/BlogPostPage.module.css";
@@ -21,9 +21,9 @@ interface BlogPostPageProps {
   post: BlogPost;
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const slug = params?.slug?.toString()!;
-  if (!slug) throw Error("slug missing");
+  if (!slug) throw Error("找不到标签");
 
   const post = await BlogApi.getBlogPostBySlug(slug);
   return {
