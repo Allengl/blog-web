@@ -6,6 +6,7 @@ import styles from "@/styles/BlogPostPage.module.css";
 import Link from "next/link";
 import { formatDate } from "@/utils/utils";
 import { FiEdit } from "react-icons/fi";
+import Markdown from "@/components/Markdown";
 
 interface BlogPostPageProps {
   post: BlogPost;
@@ -60,7 +61,7 @@ const BlogPostPage = ({
             <p className="h5 mb-3 text-center">{summary}</p>
             <span className="text-muted">{createdUpdatedText}</span>
           </div>
-          <div>{body}</div>
+          <Markdown>{body}</Markdown>
         </article>
       </div>
     </>
