@@ -105,7 +105,7 @@ export default function EditBlogPostPage({ post }: EditBlogPostPageProps) {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormInputField
           label="标题"
-          register={register("title", { required: "required" })}
+          register={register("title", { required: "必填" })}
           placeholder="标题"
           maxLength={100}
           error={errors.title}
@@ -113,29 +113,22 @@ export default function EditBlogPostPage({ post }: EditBlogPostPageProps) {
         />
         <FormInputField
           label="标签"
-          register={register("slug", { required: "required" })}
+          register={register("slug", { required: "必填" })}
           placeholder="标签"
           maxLength={100}
           error={errors.slug}
         />
         <FormInputField
           label="摘要"
-          register={register("summary", { required: "required" })}
+          register={register("summary", { required: "必填" })}
           placeholder="摘要"
           maxLength={300}
           as="textarea"
           error={errors.summary}
         />
-        {/* <FormInputField
-          label="图片"
-          register={register("featuredImage", { required: "required" })}
-          type="file"
-          accept="image/png, image/jpeg"
-          error={errors.featuredImage}
-        /> */}
         <MarkdownEditor
           label="正文"
-          register={register("body", { required: "required" })}
+          register={register("body", { required: "必填" })}
           watch={watch}
           setValue={setValue}
           error={errors.body}
