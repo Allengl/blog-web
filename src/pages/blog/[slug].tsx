@@ -7,16 +7,6 @@ import Link from "next/link";
 import { formatDate } from "@/utils/utils";
 import { FiEdit } from "react-icons/fi";
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = await BlogApi.getAllBlogPostSlugs();
-  const paths = slugs.map((slug) => ({ params: { slug } }));
-
-  return {
-    paths,
-    fallback: "blocking", // auto generate slugs
-  };
-};
-
 interface BlogPostPageProps {
   post: BlogPost;
 }
